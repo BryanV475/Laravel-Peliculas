@@ -15,13 +15,13 @@ class Reporte1 extends Component
 
     public function render()
     {
-        $generos = Genero::pluck('id','nombre');
+        
         return view('livewire.reporte1.view',
         [
             'peliculas'=>Pelicula::
                 orWhere('nombre','LIKE','%'.$this->keyWord.'%')
-                ->paginate(10),
-            'generos'=>$generos
+                ->paginate(10)
+            
         ]);
     }
 }
