@@ -7,10 +7,13 @@
 					<div style="display: flex; justify-content: space-between; align-items: center;">
 						<div class="float-left">
 							<h4><i class="fab fa-laravel text-info"></i>
-							Reporte 1 </h4>
+							Listado de Pelicula por Precio </h4>
 						</div>
 						<div>
-							<input wire:model='keyWord' type="text" class="form-control" name="search" id="search" placeholder="Buscar Peliculas">
+							<input wire:model='keyWord' type="text" class="form-control" name="search" id="search" placeholder="inicio">
+						</div>
+						<div>
+							<input wire:model='keyWord2' type="text" class="form-control" name="search" id="search" placeholder="fin">
 						</div>	
 					</div>
 				</div>

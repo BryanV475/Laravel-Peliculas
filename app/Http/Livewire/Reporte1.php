@@ -11,15 +11,15 @@ class Reporte1 extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $keyWord;
+    public $keyWord, $keyWord2;
 
     public function render()
     {
         
         return view('livewire.reporte1.view',
         [
-            'peliculas'=>Pelicula::
-                orWhere('nombre','LIKE','%'.$this->keyWord.'%')
+            'peliculas'=>Pelicula::select('*')
+                ->whereBetween('costo',[$this->keyWord, $this->keyWord2] )
                 ->paginate(10)
             
         ]);
