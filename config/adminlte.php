@@ -253,6 +253,18 @@ return [
             'url'  => 'home',
             'icon'    => 'fas fa-fw fa-home',
         ],
+        [
+            'text'    => 'Reportes',
+            'url'     => '#',
+            'icon'    => 'fas fa-fw fa-file-invoice-dollar',
+            'submenu' =>[
+                [
+                    'text' => 'Peliculas - Precio',
+                    'url' => 'reporte1',
+                    'icon' => '',
+                ]
+            ]
+        ],
         ['header' => 'Economico'],
         [
             'text'    => 'Gestion de Prestamos',
