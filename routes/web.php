@@ -33,4 +33,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 	Route::view('actores', 'livewire.actores.index')->middleware('auth');
 	Route::view('sexos', 'livewire.sexos.index')->middleware('auth');
 	Route::view('reporte1', 'livewire.reporte1.index')->middleware('auth');
+	Route::view('reporte2', 'livewire.reporte2.index')->middleware('auth');
 	
