@@ -1,4 +1,4 @@
-@section('title', __('Reporte-4'))
+@section('title', __('Reporte-5'))
 <div class="container-fluid">
 	<div class="row justify-content-center">
 		<div class="col-md-12">
@@ -7,7 +7,7 @@
 					<div style="display: flex; justify-content: space-between; align-items: center;">
 						<div class="float-left">
 							<h4><i class="fab fa-laravel text-info"></i>
-							Listado de Ingreso por Mes </h4>
+							Listado de Socios por Mes de Registro </h4>
 						</div>
 					</div>
 				</div>
@@ -17,14 +17,14 @@
 						<thead class="thead">
 							<tr> 
 								<th>Mes</th>
-                                <td>Monto</td>
+                                <td>Socios</td>
 							</tr>
 						</thead>
 						<tbody>
                             @for($i = 0; $i < 12; $i++)
                             <tr>
-                                <td>{{ $ingresoPorMes['label'][$i]}}</td>
-                                <td>{{ $ingresoPorMes['data'][$i]}}</td>
+                                <td>{{ $socioPorMes['label'][$i]}}</td>
+                                <td>{{ $socioPorMes['data'][$i]}}</td>
                             </tr>
                             @endfor
 						</tbody>
@@ -38,7 +38,7 @@
         <div class="col-md-6">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Ingresos por Mes</h3>
+                    <h3 class="card-title">Socios por Mes</h3>
                     <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
                             <i class="fas fa-minus"></i>

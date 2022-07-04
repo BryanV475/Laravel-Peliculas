@@ -277,6 +277,11 @@ return [
                     'text' => 'Alquileres - Mes',
                     'url' => 'reporte4',
                     'icon' => '',
+                ],
+                [
+                    'text' => 'Socios - Mes',
+                    'url' => 'reporte5',
+                    'icon' => '',
                 ]
             ]
         ],
