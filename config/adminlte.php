@@ -267,6 +267,11 @@ return [
                     'text' => 'Peliculas - Registro',
                     'url' => 'reporte2',
                     'icon' => '',
+                ],
+                [
+                    'text' => 'Socios - Registro',
+                    'url' => 'reporte3',
+                    'icon' => '',
                 ]
             ]
         ],
