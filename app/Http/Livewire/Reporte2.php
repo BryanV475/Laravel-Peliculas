@@ -23,5 +23,15 @@ class Reporte2 extends Component
             
         ]);
     }
-    
+    public function pdf(){
+        $date1=$_GET['searchDate1'];
+        $date2=$_GET['searchDate2'];
+
+        $peliculas = Pelicula::select('*')
+        ->whereBetween('created_at',[$date1, $date2] )
+        ->get();
+
+        $pdf = PDF::loadView('livewire.reporte2.pdf',compact('peliculas'));
+        return $pdf->download('Reporte-Peliculas-Registro'.' - '.date('d-m-y_H:i:s').'.pdf');
+    }
 }

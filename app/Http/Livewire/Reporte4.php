@@ -105,6 +105,6 @@ class Reporte4 extends Component
 
 
         $pdf = PDF::loadView('livewire.reporte4.pdf',compact('ingresoPorMes'));
-        return $pdf->download('Reporte-4-'.' - '.date('d-m-y_H:i:s').'.pdf');
+        return $pdf->download('Reporte-Alquileres-Mes'.' - '.date('d-m-y_H:i:s').'.pdf');
     }
 }

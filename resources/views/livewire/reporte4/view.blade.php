@@ -1,45 +1,44 @@
 @section('title', __('Reporte-4'))
 <div class="container-fluid">
-	<div class="row justify-content-center">
-		<div class="col-md-12">
-			<div class="card">
-				<div class="card-header">
-					<div style="display: flex; justify-content: space-between; align-items: center;">
-						<div class="float-left">
-							<h4><i class="fab fa-laravel text-info"></i>
-							Listado de Ingreso por Mes </h4>
-						</div>
-                        <div>
-                        <a href="{{route('reporte4-pdf')}}" class="btn btn-success">
-											<i class="fa fa-file-pdf"></i>
-											PDF
-										</a>
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div class="float-left">
+                            <h4><i class="fab fa-laravel text-info"></i>
+                                Listado de Ingreso por Mes </h4>
                         </div>
-					</div>
-				</div>
-				<div class="card-body">
-				<div class="table-responsive">
-					<table class="table table-bordered table-sm">
-						<thead class="thead">
-							<tr> 
-								<th>Mes</th>
-                                <th>Monto</th>
-							</tr>
-						</thead>
-						<tbody>
-                            @for($i = 0; $i < 12; $i++)
-                            <tr>
-                                <td>{{ $ingresoPorMes['label'][$i]}}</td>
-                                <td>{{ $ingresoPorMes['data'][$i]}}</td>
-                            </tr>
-                            @endfor
-						</tbody>
-					</table>					
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                        <div>
+                            <a href="{{route('reporte4-pdf')}}" class="btn btn-success">
+                                <i class="fa fa-file-pdf"></i>
+                                PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-sm">
+                            <thead class="thead">
+                                <tr>
+                                    <th>Mes</th>
+                                    <th>Monto</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for($i = 0; $i < 12; $i++) <tr>
+                                    <td>{{ $ingresoPorMes['label'][$i]}}</td>
+                                    <td>{{ $ingresoPorMes['data'][$i]}}</td>
+                                    </tr>
+                                    @endfor
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card card-primary">
@@ -71,11 +70,10 @@
         </div>
     </div>
 </div>
-    
+
 
 @section('js')
 <script>
-
     function generateColors(genData) {
         colors = [];
         for (let i = 0; i < genData.data.length; i++) {

@@ -9,6 +9,12 @@
 							<h4><i class="fab fa-laravel text-info"></i>
 							Listado de Socios por Mes de Registro </h4>
 						</div>
+                        <div>
+                        <a href="{{route('reporte5-pdf')}}" class="btn btn-success">
+											<i class="fa fa-file-pdf"></i>
+											PDF
+										</a>
+                        </div>
 					</div>
 				</div>
 				<div class="card-body">
@@ -17,7 +23,7 @@
 						<thead class="thead">
 							<tr> 
 								<th>Mes</th>
-                                <td>Socios</td>
+                                <th>Socios</th>
 							</tr>
 						</thead>
 						<tbody>
