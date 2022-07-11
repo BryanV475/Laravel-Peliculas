@@ -23,6 +23,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('reporte1-pdf', [App\Http\Livewire\Reporte1::class, 'pdf'])->name('reporte1-pdf');
+
+Route::get('reporte4-pdf', [App\Http\Livewire\Reporte4::class, 'pdf'])->name('reporte4-pdf');
 //Route Hooks - Do not delete//
 	Route::view('alquilers', 'livewire.alquilers.index')->middleware('auth');
 	Route::view('actorpeliculas', 'livewire.actorpeliculas.index')->middleware('auth');

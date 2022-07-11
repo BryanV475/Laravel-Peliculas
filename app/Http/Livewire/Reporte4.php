@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Alquiler;
 use Livewire\Component;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class Reporte4 extends Component
 {
@@ -75,5 +76,35 @@ class Reporte4 extends Component
                 'grafico' => $jsonValues['grafico']
             ]
         );
+    }
+    public function pdf()
+    {
+        $year = gmdate("Y");
+        $initDay = "01";
+        
+        $ingresoPorMes=[];
+        $grafico=[];
+        for ($i = 1; $i <= 12; $i++) {
+            $endDay = date("t", strtotime($year . "-" . $i . "-" . $initDay));
+            $month = $this->getMonth($i);
+            $initDate = $year."-".$i."-".$initDay;
+            $endDate = $year."-".$i."-".$endDay;
+            $ingresoPorMes['label'][]=$month;
+            $ingresoPorMes['data'][] = Alquiler::select('*')->whereBetween('desde',[$initDate,$endDate])->sum('valor');
+            $grafico['label'][]=$month;
+            $grafico['data'][] = Alquiler::select('*')->whereBetween('desde',[$initDate,$endDate])->sum('valor');
+        }
+        $jsonValues['grafico'] = json_encode($grafico);
+
+        // return view('livewire.reporte4.pdf', 
+        //     [
+        //         'ingresoPorMes' => $ingresoPorMes,
+        //         'grafico' => $jsonValues['grafico']
+        //     ]
+        // );
+
+
+        $pdf = PDF::loadView('livewire.reporte4.pdf',compact('ingresoPorMes'));
+        return $pdf->download('Reporte-4-'.' - '.date('d-m-y_H:i:s').'.pdf');
     }
 }

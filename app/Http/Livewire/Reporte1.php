@@ -35,10 +35,16 @@ class Reporte1 extends Component
 
     public function pdf()
     {
-        $peliculas = Pelicula::all();
+        $begin=$_GET['begin'];
+        $end=$_GET['end'];
+
+        //$peliculas = Pelicula::all();
+        $peliculas=Pelicula::select('*')
+                ->whereBetween('costo',[$begin, $end] )
+                ->get();
         
         $pdf = PDF::loadView('livewire.reporte1.pdf', compact('peliculas'));
-     
+        
         return $pdf->download('Reporte-Peliculas-Costo'.' - '.date('d-m-y_H:i:s').'.pdf');
     }
     

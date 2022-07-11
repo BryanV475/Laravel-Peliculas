@@ -9,6 +9,12 @@
 							<h4><i class="fab fa-laravel text-info"></i>
 							Listado de Ingreso por Mes </h4>
 						</div>
+                        <div>
+                        <a href="{{route('reporte4-pdf')}}" class="btn btn-success">
+											<i class="fa fa-file-pdf"></i>
+											PDF
+										</a>
+                        </div>
 					</div>
 				</div>
 				<div class="card-body">
@@ -17,7 +23,7 @@
 						<thead class="thead">
 							<tr> 
 								<th>Mes</th>
-                                <td>Monto</td>
+                                <th>Monto</th>
 							</tr>
 						</thead>
 						<tbody>

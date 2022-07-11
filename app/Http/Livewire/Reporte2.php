@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Pelicula;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class Reporte2 extends Component
 {
@@ -22,4 +23,5 @@ class Reporte2 extends Component
             
         ]);
     }
+    
 }
