@@ -14,6 +14,9 @@
 						</div>
 						<div>
 							<input wire:model='keyWord2' type="text" class="form-control" name="search" id="search" placeholder="fin">
+						</div>
+						<div>
+							<a href="{{ route('reporte1-pdf')}}" class="btn btn-success"></a>
 						</div>	
 					</div>
 				</div>
@@ -33,6 +36,7 @@
 								<td>{{ $row->nombre }}</td>	
 								<td>{{ $row->genero->nombre }}</td>
 								<td>{{ $row->costo }}</td>
+							</tr>
 							@endforeach
 						</tbody>
 					</table>						
