@@ -186,6 +186,8 @@ return array(
          * In images, <img> size in pixel attribute, img css style, are overriding
          * the real image dimension in px for rendering.
          *
+         * Resolution
+         * 
          * @var int
          */
         "dpi" => 96,
