@@ -89,10 +89,7 @@ class Reporte5 extends Component
             $endDate = $year."-".$i."-".$endDay;
             $socioPorMes['label'][]=$month;
             $socioPorMes['data'][] = Socio::select('*')->whereBetween('created_at',[$initDate,$endDate])->count();
-            $grafico['label'][]=$month;
-            $grafico['data'][] = Socio::select('*')->whereBetween('created_at',[$initDate,$endDate])->count();
         }
-        $jsonValues['grafico'] = json_encode($grafico);
 
         $pdf = PDF::loadView('livewire.reporte5.pdf',compact('socioPorMes'));
         return $pdf->download('Reporte-Socios-Mes'.' - '.date('d-m-y_H:i:s').'.pdf');

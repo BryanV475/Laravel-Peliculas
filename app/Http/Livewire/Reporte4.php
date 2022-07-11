@@ -91,19 +91,8 @@ class Reporte4 extends Component
             $endDate = $year."-".$i."-".$endDay;
             $ingresoPorMes['label'][]=$month;
             $ingresoPorMes['data'][] = Alquiler::select('*')->whereBetween('desde',[$initDate,$endDate])->sum('valor');
-            $grafico['label'][]=$month;
-            $grafico['data'][] = Alquiler::select('*')->whereBetween('desde',[$initDate,$endDate])->sum('valor');
         }
-        $jsonValues['grafico'] = json_encode($grafico);
-
-        // return view('livewire.reporte4.pdf', 
-        //     [
-        //         'ingresoPorMes' => $ingresoPorMes,
-        //         'grafico' => $jsonValues['grafico']
-        //     ]
-        // );
-
-
+        
         $pdf = PDF::loadView('livewire.reporte4.pdf',compact('ingresoPorMes'));
         return $pdf->download('Reporte-Alquileres-Mes'.' - '.date('d-m-y_H:i:s').'.pdf');
     }
