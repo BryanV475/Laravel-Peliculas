@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Socio;
 use Livewire\Component;
-
+USE Barryvdh\DomPDF\Facade\Pdf as PDF;
 class Reporte5 extends Component
 {
 
@@ -75,5 +75,23 @@ class Reporte5 extends Component
                 'grafico' => $jsonValues['grafico']
             ]
         );
+    }
+    public function pdf(){
+        $year = gmdate("Y");
+        $initDay = "01";
+        
+        $socioPorMes=[];
+        $grafico=[];
+        for ($i = 1; $i <= 12; $i++) {
+            $endDay = date("t", strtotime($year . "-" . $i . "-" . $initDay));
+            $month = $this->getMonth($i);
+            $initDate = $year."-".$i."-".$initDay;
+            $endDate = $year."-".$i."-".$endDay;
+            $socioPorMes['label'][]=$month;
+            $socioPorMes['data'][] = Socio::select('*')->whereBetween('created_at',[$initDate,$endDate])->count();
+        }
+
+        $pdf = PDF::loadView('livewire.reporte5.pdf',compact('socioPorMes'));
+        return $pdf->download('Reporte-Socios-Mes'.' - '.date('d-m-y_H:i:s').'.pdf');
     }
 }
