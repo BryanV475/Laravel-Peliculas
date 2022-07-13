@@ -6,22 +6,46 @@ use App\Models\Genero;
 use App\Models\Pelicula;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class Reporte1 extends Component
 {
     use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+    protected $paginationTheme = 'bootstrap', $peliculas;
     public $keyWord, $keyWord2;
+
 
     public function render()
     {
         
         return view('livewire.reporte1.view',
         [
-            'peliculas'=>Pelicula::select('*')
-                ->whereBetween('costo',[$this->keyWord, $this->keyWord2] )
-                ->paginate(10)
+            'peliculas'=>$this->getPeliculas()
             
         ]);
+        
     }
+
+    public function getPeliculas(){
+        $peliculas=Pelicula::select('*')
+                ->whereBetween('costo',[$this->keyWord, $this->keyWord2] )
+                ->paginate(10);
+        return $peliculas;
+    }
+
+    public function pdf()
+    {
+        $begin=$_GET['begin'];
+        $end=$_GET['end'];
+
+        //$peliculas = Pelicula::all();
+        $peliculas=Pelicula::select('*')
+                ->whereBetween('costo',[$begin, $end] )
+                ->get();
+        
+        $pdf = PDF::loadView('livewire.reporte1.pdf', compact('peliculas'));
+        
+        return $pdf->download('Reporte-Peliculas-Costo'.' - '.date('d-m-y_H:i:s').'.pdf');
+    }
+    
 }

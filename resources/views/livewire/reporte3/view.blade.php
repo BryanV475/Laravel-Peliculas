@@ -9,14 +9,24 @@
 							<h4><i class="fab fa-laravel text-info"></i>
 							Listado de Socios por Fecha de Registro </h4>
 						</div>
-                        Inicio
-						<div>
-							<input wire:model='keyWord' type="date" class="form-control" name="search" id="search" placeholder="inicio">
-						</div>
-                        Fin
-						<div>
-							<input wire:model='keyWord2' type="date" class="form-control" name="search" id="search" placeholder="fin">
-						</div>	
+                        <form action="{{route('reporte3-pdf')}}" method="get">
+							<div class="row justify-content-center">
+								<div class="col">
+									Inicio
+									<input wire:model='keyWord' type="date" class="form-control" name="searchDate3" id="searchDate3" placeholder="inicio">
+								</div>
+								<div class="col">
+									Fin
+									<input wire:model='keyWord2' type="date" class="form-control" name="searchDate4" id="searchDate4" placeholder="fin">
+								</div>
+								<div class="col">
+									<button type="submit" class="btn btn-success">
+										<i class="fa fa-file-pdf"></i>
+										PDF
+									</button>
+								</div>
+							</div>
+						</form>	
 					</div>
 				</div>
 				<div class="card-body">
