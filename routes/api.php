@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\API\ActoreController;
+use App\Http\Controllers\API\ActorPeliculaApiController;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,4 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('actores', ActoreController::class);
+
+Route::resource('actores-peliculas', ActorPeliculaApiController::class);
 
