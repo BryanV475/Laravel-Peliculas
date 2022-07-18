@@ -4,6 +4,7 @@ use App\Http\Controllers\API\ActoreController;
 use App\Http\Controllers\API\ActorPeliculaApiController;
 use App\Http\Controllers\API\AlquilerController;
 use App\Http\Controllers\API\SocioController;
+use App\Http\Controllers\API\PeliculasController;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
@@ -28,3 +29,5 @@ Route::resource('alquilers', AlquilerController::class);
 Route::resource('actores-peliculas', ActorPeliculaApiController::class);
 
 Route::resource('socios', SocioController::class);
+
+Route::resource('peliculas', PeliculasController::class);

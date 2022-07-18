@@ -46,7 +46,7 @@ class SocioController extends Controller
         ]);
   
         $socio = new Socio;
-        
+
         $socio->cedula = $request->input('cedula');  //retrieving user inputs
         $socio->nombre = $request->input('nombre');  //retrieving user inputs
         $socio->direccion = $request->input('direccion'); //retrieving user inputs
