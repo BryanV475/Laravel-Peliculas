@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\ActoreController;
 use App\Http\Controllers\API\ActorPeliculaApiController;
 use App\Http\Controllers\API\SocioController;
+use App\Http\Controllers\API\PeliculasController;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
