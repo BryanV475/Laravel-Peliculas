@@ -37,7 +37,6 @@ class ActoreController extends Controller
     {
         $this->validate($request, [ //inputs are not empty or null
 
-            'id' => 'required',
             'nombre' => 'required',
             'sex_id' => 'required',
         ]);
