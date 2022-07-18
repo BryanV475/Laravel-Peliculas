@@ -17,7 +17,7 @@ class ActorPeliculaApiController extends Controller
     public function index()
     {
         return ActorPelicula::select('*')->get();
-        //return Actore::orderBy('created_at', 'asc')->get();  //returns values in ascending order
+        
         
         
     }
@@ -29,7 +29,7 @@ class ActorPeliculaApiController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -40,7 +40,20 @@ class ActorPeliculaApiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [ //inputs are not empty or null
+
+            'act_id' => 'required',
+			'pel_id' => 'required',
+			'papel' => 'required',
+        ]);
+
+        $actorPelicula = new ActorPelicula;
+        
+        $actorPelicula->act_id = $request->input('act_id'); //retrieving user inputs
+        $actorPelicula->pel_id = $request->input('pel_id');  //retrieving user inputs
+        $actorPelicula->papel = $request->input('papel');  //retrieving user inputs
+        $actorPelicula->save(); //storing values as an object
+        return $actorPelicula; //returns the stored value if the operation was successful.
     }
 
     /**
@@ -51,7 +64,7 @@ class ActorPeliculaApiController extends Controller
      */
     public function show($id)
     {
-        //
+        return ActorPelicula::findorFail($id); //searches for the object in the database using its id and returns it.
     }
 
     /**
@@ -74,7 +87,19 @@ class ActorPeliculaApiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [ //inputs are not empty or null
+
+            'act_id' => 'required',
+			'pel_id' => 'required',
+			'papel' => 'required',
+        ]);
+
+        $actorPelicula = ActorPelicula::findorFail($id);
+        $actorPelicula->act_id = $request->input('act_id'); //retrieving user inputs
+        $actorPelicula->pel_id = $request->input('pel_id');  //retrieving user inputs
+        $actorPelicula->papel = $request->input('papel');  //retrieving user inputs
+        $actorPelicula->save(); //storing values as an object
+        return $actorPelicula; //returns the stored value if the operation was successful.
     }
 
     /**
@@ -85,6 +110,9 @@ class ActorPeliculaApiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $actorPelicula = ActorPelicula::findorFail($id);
+        if ($actorPelicula->delete()){
+            return 'deleted succesfully';
+        }
     }
 }

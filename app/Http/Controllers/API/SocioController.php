@@ -37,7 +37,7 @@ class SocioController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [ //inputs are not empty or null
-            'id' => 'required',
+            
             'cedula' => 'required',
             'nombre' => 'required',
             'direccion' => 'required',
@@ -46,7 +46,7 @@ class SocioController extends Controller
         ]);
   
         $socio = new Socio;
-        $socio->id = $request->input('id'); //retrieving user inputs
+
         $socio->cedula = $request->input('cedula');  //retrieving user inputs
         $socio->nombre = $request->input('nombre');  //retrieving user inputs
         $socio->direccion = $request->input('direccion'); //retrieving user inputs
@@ -88,7 +88,6 @@ class SocioController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [ // the new values should not be null
-            'id' => 'required',
             'cedula' => 'required',
             'nombre' => 'required',
             'direccion' => 'required',

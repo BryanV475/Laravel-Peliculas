@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\ActoreController;
 use App\Http\Controllers\API\ActorPeliculaApiController;
+use App\Http\Controllers\API\AlquilerController;
 use App\Http\Controllers\API\SocioController;
 use App\Http\Controllers\API\PeliculasController;
 use Illuminate\Http\Request;
@@ -24,7 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('actores', ActoreController::class);
-
+Route::resource('alquilers', AlquilerController::class);
 Route::resource('actores-peliculas', ActorPeliculaApiController::class);
 
 Route::resource('socios', SocioController::class);
