@@ -45,7 +45,7 @@ class SocioController extends Controller
             'correo' => 'required',
         ]);
   
-        $socio = new Task;
+        $socio = new Socio;
         $socio->id = $request->input('id'); //retrieving user inputs
         $socio->cedula = $request->input('cedula');  //retrieving user inputs
         $socio->nombre = $request->input('nombre');  //retrieving user inputs
@@ -96,7 +96,7 @@ class SocioController extends Controller
             'correo' => 'required',
         ]);
   
-        $socio = Task::findorFail($id); // uses the id to search values that need to be updated.
+        $socio = Socio::findorFail($id); // uses the id to search values that need to be updated.
         $socio->id = $request->input('id'); //retrieving user inputs
         $socio->cedula = $request->input('cedula');  //retrieving user inputs
         $socio->nombre = $request->input('nombre');  //retrieving user inputs
