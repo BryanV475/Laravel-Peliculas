@@ -37,7 +37,7 @@ class SocioController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [ //inputs are not empty or null
-            'id' => 'required',
+            
             'cedula' => 'required',
             'nombre' => 'required',
             'direccion' => 'required',
@@ -45,8 +45,8 @@ class SocioController extends Controller
             'correo' => 'required',
         ]);
   
-        $socio = new Task;
-        $socio->id = $request->input('id'); //retrieving user inputs
+        $socio = new Socio;
+        
         $socio->cedula = $request->input('cedula');  //retrieving user inputs
         $socio->nombre = $request->input('nombre');  //retrieving user inputs
         $socio->direccion = $request->input('direccion'); //retrieving user inputs
@@ -88,7 +88,6 @@ class SocioController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [ // the new values should not be null
-            'id' => 'required',
             'cedula' => 'required',
             'nombre' => 'required',
             'direccion' => 'required',
@@ -96,7 +95,7 @@ class SocioController extends Controller
             'correo' => 'required',
         ]);
   
-        $socio = Task::findorFail($id); // uses the id to search values that need to be updated.
+        $socio = Socio::findorFail($id); // uses the id to search values that need to be updated.
         $socio->id = $request->input('id'); //retrieving user inputs
         $socio->cedula = $request->input('cedula');  //retrieving user inputs
         $socio->nombre = $request->input('nombre');  //retrieving user inputs

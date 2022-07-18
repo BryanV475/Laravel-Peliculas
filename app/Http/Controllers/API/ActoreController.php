@@ -42,7 +42,7 @@ class ActoreController extends Controller
         ]);
 
         $actor = new Actore;
-        $actor->id = $request->input('id'); //retrieving user inputs
+        
         $actor->nombre = $request->input('nombre');  //retrieving user inputs
         $actor->sex_id = $request->input('sex_id');  //retrieving user inputs
         $actor->save(); //storing values as an object
@@ -88,7 +88,7 @@ class ActoreController extends Controller
             'sex_id' => 'required',
         ]);
         $actor = Actore::findorFail($id);
-        $actor->id = $request->input('id'); //retrieving user inputs
+        
         $actor->nombre = $request->input('nombre');  //retrieving user inputs
         $actor->sex_id = $request->input('sex_id');  //retrieving user inputs
         $actor->save(); //storing values as an object
